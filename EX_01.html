@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>JOGO DA VELHA</title>
+</head>
+
+<style>
+    .tamanhoBotao {
+        height: 100px;
+        padding-top: 5px;
+    }
+
+    .botaoJogoDaVelha {
+        height: 100px;
+        width: 100px;
+        position: static;
+        font-size: 80px;
+    }
+</style>
+
+<body>
+    <h1>
+        Exercício 2
+        Faça um programa que leia o número de linhas e colunas de
+        uma matriz. Após, solicite ao usuário, preencher com dados
+        essa matriz. Ao final, imprima os dados informados.
+    </h1>
+
+    <div>
+        <input type="button" value=" " id="J1" class="botaoJogoDaVelha" onclick="marcarComXouO('J1')">
+        <input type="button" value=" " id="J2" class="botaoJogoDaVelha" onclick="marcarComXouO('J2')">
+        <input type="button" value=" " id="J3" class="botaoJogoDaVelha" onclick="marcarComXouO('J3')">
+    </div>
+
+    <div>
+        <input type="button" value=" " id="J4" class="botaoJogoDaVelha" onclick="marcarComXouO('J4')">
+        <input type="button" value=" " id="J5" class="botaoJogoDaVelha" onclick="marcarComXouO('J5')">
+        <input type="button" value=" " id="J6" class="botaoJogoDaVelha" onclick="marcarComXouO('J6')">
+    </div>
+    <div>
+        <input type="button" value=" " id="J7" class="botaoJogoDaVelha" onclick="marcarComXouO('J7')">
+        <input type="button" value=" " id="J8" class="botaoJogoDaVelha" onclick="marcarComXouO('J8')">
+        <input type="button" value=" " id="J9" class="botaoJogoDaVelha" onclick="marcarComXouO('J9')">
+    </div>
+
+    <div>
+            <label>Quer recomeçar? Clique aqui:</label>
+    </div>
+    <input type="submit" value="Recomeçar" onclick="window.location.reload()">
+
+
+    <script>
+        var jogada = " "
+        window.onload = function () {
+            jogada = "X"
+        }
+
+        function marcarComXouO(botao) {
+            if (document.getElementById(botao).value == " ") {
+                if (jogada == "X") {
+                    document.getElementById(botao).value = jogada
+                    jogada = "O"
+
+                } else {
+                    document.getElementById(botao).value = jogada
+                    jogada = "X"
+                }
+            }
+            var j1 = document.getElementById("J1").value
+            var j2 = document.getElementById("J2").value
+            var j3 = document.getElementById("J3").value
+            var j4 = document.getElementById("J4").value
+            var j5 = document.getElementById("J5").value
+            var j6 = document.getElementById("J6").value
+            var j7 = document.getElementById("J7").value
+            var j8 = document.getElementById("J8").value
+            var j9 = document.getElementById("J9").value
+
+            var msg = " "
+            var houveVencedorOuDeuVelha = false
+
+            if (j1 == j2 && j2 == j3 && j1 != " ") {
+                msg = "Parabéns ao jogador do " + j1 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+
+            } else if (j1 == j4 && j4 == j7 && j1 != " ") {
+                msg = "Parabéns ao jogador do " + j1 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j1 == j5 && j5 == j9 && j1 != " ") {
+                msg = "Parabéns ao jogador do " + j1 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j4 == j5 && j5 == j6 && j4 != " ") {
+                msg = "Parabéns ao jogador do " + j4 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j7 == j8 && j8 == j9 && j7 != " ") {
+                msg = "Parabéns ao jogador do " + j7 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j2 == j5 && j5 == j8 && j2 != " ") {
+                msg = "Parabéns ao jogador do " + j2 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j3 == j6 && j6 == j9 && j3 != " ") {
+                msg = "Parabéns ao jogador do " + j3 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j3 == j5 && j5 == j7 && j3 != " ") {
+                msg = "Parabéns ao jogador do " + j3 + ", você venceu!"
+                houveVencedorOuDeuVelha = true
+            } else if (j1 != " " && j2 != " " && j3 != " " && j4 != " " && j5 != " " && j6 != " " && j7 != " " && j8 != " " && j9 != " "){
+                msg = "Deu empate!!"
+                houveVencedorOuDeuVelha = true
+            }
+
+
+            if (houveVencedorOuDeuVelha == true) {
+                document.getElementById("J2").disabled = true
+                document.getElementById("J1").disabled = true
+                document.getElementById("J3").disabled = true
+                document.getElementById("J4").disabled = true
+                document.getElementById("J5").disabled = true
+                document.getElementById("J6").disabled = true
+                document.getElementById("J7").disabled = true
+                document.getElementById("J8").disabled = true
+                document.getElementById("J9").disabled = true
+                alert(msg)
+            }
+        }
+
+    </script>
+</body>
